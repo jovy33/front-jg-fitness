@@ -1,0 +1,18 @@
+
+[
+  {
+    "id": "P001",
+    "name": "Jose Coach",    
+    "img": "/entrenadores-fotos/jose-coach.jpg"
+  },
+  {
+    "id": "P002",
+    "name": "Maria Laguna",    
+    "img": "/entrenadores-fotos/maria-laguna.jpg"
+  },
+  {
+    "id": "P003",
+    "name": "Jose Flores",    
+    "img": "/entrenadores-fotos/jose-flores.jpg"
+  }
+]

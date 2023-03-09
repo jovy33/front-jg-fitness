@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background-color: black;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +12,221 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.btn-card {
+  color: white;
+  width: 100%;
+}
+
+.card-body {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+.botones-card {
+  text-align: center;
+}
+
+.card-text {
+  font-weight: bold;
+}
+
+.card-title {
+  font-size: x-large;
+}
+
+.card-detalle {
+  display: grid;
+  background-color: black;
+  width: 25em;
+}
+
+.card-detalle-img {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: black;
+}
+
+.botones-detalle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detalle-descripcion {
+  font-weight: normal;
+  font-size: small;
+}
+
+.vista-detalle {
+  margin: 3%;
+  padding-top: 1%;
+}
+
+.inactive {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  width: 15%;
+}
+
+.active {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  width: 15%;
+}
+
+.navbar-propio-menu {
+  text-align: center;
+}
+
+.div-card-entrenador {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.div-card-entrenador-interno {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2%;
+  width: 91%;
+  justify-items: center;
+  margin-top: 6%;
+}
+
+.div-card-personal-trainer {
+  background-color: black;
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.listgroup-item-cardentrenador {
+  background-color: black;
+}
+
+.detalle-body {
+  padding-bottom: 0%;
+}
+
+.navbar-titulo {
+  margin-left: 3%;
+}
+
+.navBarPropio {
+  background-color: black !important;
+  border-bottom: 1px solid white;
+}
+
+.div-home-personal-trainers {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.div-home-personal-trainers-interno {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2%;
+  width: 65%;
+  justify-items: baseline;
+  margin-top: 12%;
+}
+
+.div-home-personal-trainers-primer-div {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.div-home-personal-trainers-primer-div-interno {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 2%;
+  height: 500px;
+  justify-items: baseline;
+  margin-top: 3%;
+  text-align: justify;
+  width: 80%;
+}
+
+.div-container-login {
+  background-color: black;
+  color: white;
+  margin: 10% 35% 0% 35%;
+}
+
+.label-checkbox-sexo {
+  margin-top: 8px;
+}
+
+.label-clave {
+  margin-top: 8px;
+}
+
+.div-perfil {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  font-weight: bolder;
+  font-size: xx-large;
+  margin: 5% 10% 0% 20%;
+}
+
+.div-perfil-interno {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 2%;
+  height: 500px;
+  justify-items: baseline;
+  margin-top: 3%;
+  text-align: justify;
+  width: 80%;
+}
+
+.div-perfil-detalle {
+  width: 70%;
+}
+
+.span-perfil {
+  min-width: 25%;
+  display: inline-block;
+}
+
+.detalle-entrenador-div-img {
+  text-align: center;
+  background-color: black;
+}
+
+.detalle-entrenador-btn {
+  color: white;
+}
+
+.span-card-detalle {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.span-card-detalle-descripcion {
+  font-size: medium;
+}
+
+.detalle-titulo-entrenador {
+  text-align: center;
+  font-weight: bolder;
+  display: block;
+  font-size: xx-large;
+  margin-bottom: 4rem;
+}
+
+.div-sin-solicitud {
+  text-align: center;
+  padding: 4em;
+  font-size: xx-large;
 }

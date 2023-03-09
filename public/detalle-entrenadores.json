@@ -1,0 +1,63 @@
+
+[
+  {
+    "idServicio": "1",
+    "idEntrenador": "P001",
+    "nombreEntrenador": "Jose Coach",    
+    "img": "/entrenadores-fotos/jose-coach.jpg",
+    "nombre": "DIA GANADO",
+    "descripcion": "Plan de entrenamiento personalizado",
+    "precio": "20.000",
+    "duracion": "mes"
+  },
+  {
+    "idServicio": "2",
+    "idEntrenador": "P001",
+    "nombreEntrenador": "Jose Coach",    
+    "img": "/entrenadores-fotos/jose-coach.jpg",
+    "nombre": "CONSTRUCCIÓN DE HÁBITOS",
+    "descripcion": "Plan de entrenamiento + Plan nutricional",
+    "precio": "35.000",
+    "duracion": "mes"
+  },
+  {
+    "idServicio": "3",
+    "idEntrenador": "P002",
+    "nombreEntrenador": "Maria Laguna",    
+    "img": "/entrenadores-fotos/maria-laguna.jpg",
+    "nombre": "PROGRAMA DEPORTIVO",
+    "descripcion": "Plan entrenamiento personalizado",
+    "precio": "25.000",
+    "duracion": "mes"
+  },
+  {
+    "idServicio": "4",
+    "idEntrenador": "P002",
+    "nombreEntrenador": "Maria Laguna",    
+    "img": "/entrenadores-fotos/maria-laguna.jpg",
+    "nombre": "PROGRAMA FULL",
+    "descripcion": "Plan entrenamiento + Plan nutricional + Lista compra supermercado",
+    "precio": "40.000",
+    "duracion": "mes"
+  },
+  {
+    "idServicio": "5",
+    "idEntrenador": "P003",
+    "nombreEntrenador": "Jose Flores",    
+    "img": "/entrenadores-fotos/jose-flores.jpg",
+    "nombre": "PROGRAMA FIT",
+    "descripcion": "Plan entrenamiento personalizado",
+    "precio": "15.000",
+    "duracion": "mes"
+  },
+  {
+    "idServicio": "6",
+    "idEntrenador": "P003",
+    "nombreEntrenador": "Jose Flores",    
+    "img": "/entrenadores-fotos/jose-flores.jpg",
+    "nombre": "PROGRAMA FULL BODY",
+    "descripcion": "Plan entrenamiento + Plan nutricional + Asesoría online",
+    "precio": "25.000",
+    "duracion": "mes"
+  }
+]
