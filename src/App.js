@@ -14,26 +14,14 @@ import MiSolicitud from "./views/MiSolicitud";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [idSolicitud, setIdSolicitud] = useState(0);
-  const [entrenadores, setEntrenadores] = useState([]);
   const [registroUsuario, setRegistroUsuario] = useState({});
-
-  const host = window.location.protocol + '//' + window.location.host;
-  const url = `${host}/entrenadores.json`;
-  const traerEntrenadores = async () => {
-    const res = await fetch(url);
-    const resultadoEntrenadores = await res.json();
-    setEntrenadores(resultadoEntrenadores);
-  }
-
-  useEffect(() => {
-    traerEntrenadores();
-  }, []);
+  const [token, setToken] = useState({ token: '' });
 
   const sharedEntrenadores = {
     isLogged, setIsLogged,
-    entrenadores, setEntrenadores,
     registroUsuario, setRegistroUsuario,
-    idSolicitud, setIdSolicitud
+    idSolicitud, setIdSolicitud,
+    token, setToken
   };
 
   return (
