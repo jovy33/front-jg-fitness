@@ -7,20 +7,33 @@ import MyContext from '../my_context';
 
 export default function EntrenadorDetalle() {
     const navigate = useNavigate();
-    const { idSolicitud, setIdSolicitud } = useContext(MyContext);
+    const { idSolicitud, setIdSolicitud, token } = useContext(MyContext);
 
     const [entrenadorDetalles, setEntrenadorDetalles] = useState([{ img: '' }]);
     const { id } = useParams();
 
-    const host = window.location.protocol + '//' + window.location.host;
-    const url = `${host}/detalle-entrenadores.json`;
-    const cargarDetalleEntrenador = async () => {
-        const res = await fetch(url);
-        const resultadoDetalleEntrenadores = await res.json();
-        const detalleEncontrado = filtrarEntrenadorSegunId(resultadoDetalleEntrenadores);
-        setEntrenadorDetalles(detalleEncontrado);
+    const url = `https://back-jg-fitness.up.railway.app/servicios/?entrenador_id=${id}`;
+    // const url = `http://localhost:3000/servicios/?entrenador_id=${id}`;
+    const options = {
+        method: "GET",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Authorization": "Bearer " + token,
+          "Content-Type": "application/json"
+        },
+        redirect: "follow",
+        referrerPolicy: "no-referrer"
     };
-    const filtrarEntrenadorSegunId = (resultadoDetalleEntrenadores) => resultadoDetalleEntrenadores.filter(entrenador => entrenador.idEntrenador === id);
+    const cargarDetalleEntrenador = async () => {
+        const res = await fetch(url, options);
+        const resultadoDetalleEntrenadores = await res.json();
+        // const detalleEncontrado = filtrarEntrenadorSegunId(resultadoDetalleEntrenadores);
+        console.log('--------->', id, resultadoDetalleEntrenadores);
+        setEntrenadorDetalles(resultadoDetalleEntrenadores);
+    };
+    // const filtrarEntrenadorSegunId = (resultadoDetalleEntrenadores) => resultadoDetalleEntrenadores.filter(entrenador => entrenador.idEntrenador === id);
     const validaSolicitudPrevia = () => {
         if (idSolicitud > 0) {
             return true;
@@ -42,7 +55,7 @@ export default function EntrenadorDetalle() {
 
     return (
         <div className='vista-detalle'>
-            <div><span className='detalle-titulo-entrenador'>{entrenadorDetalles[0].nombreEntrenador}</span></div>
+            <div><span className='detalle-titulo-entrenador'>{entrenadorDetalles[0].nombreentrenador}</span></div>
             <Card className='card-detalle-img'>
                 <div className='detalle-entrenador-div-img'>
                     <Card.Img variant="top" src={entrenadorDetalles[0].img} style={{ width: '50%', height: '27rem' }} />

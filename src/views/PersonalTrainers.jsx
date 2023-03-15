@@ -22,7 +22,6 @@ export default function Home() {
 };
   const traerEntrenadores = async () => {
     if (typeof token === 'string') {
-      alert(token);
       const res = await fetch(url, options);
       const resultadoEntrenadores = await res.json();
       setEntrenadores(resultadoEntrenadores);

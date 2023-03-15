@@ -31,7 +31,6 @@ export default function Login() {
             alert('usuario no registrado');            
         } else {
             setIsLogged(true);
-            alert('oka');
             irListadoPersonalTrainers();
         }
         e.preventDefault();
