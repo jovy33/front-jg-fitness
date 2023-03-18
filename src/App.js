@@ -15,13 +15,16 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [idSolicitud, setIdSolicitud] = useState(0);
   const [registroUsuario, setRegistroUsuario] = useState({});
-  const [token, setToken] = useState({ token: '' });
+  // const [token, setToken] = useState({ token: '' });
+  const [token, setToken] = useState('');
+  const [userId, setUserId] = useState(0);
 
   const sharedEntrenadores = {
     isLogged, setIsLogged,
     registroUsuario, setRegistroUsuario,
     idSolicitud, setIdSolicitud,
-    token, setToken
+    token, setToken,
+    userId, setUserId
   };
 
   return (

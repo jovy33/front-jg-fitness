@@ -2,20 +2,30 @@ import React, { useState, useEffect, useContext } from 'react';
 import MyContext from '../my_context';
 
 export default function MiSolicitud() {
-  const { idSolicitud } = useContext(MyContext);
+  const { idSolicitud, token } = useContext(MyContext);
   const [servicio, setServicio] = useState({});
 
   const host = window.location.protocol + '//' + window.location.host;
-  const url = `${host}/detalle-entrenadores.json`;
+  // const url = `${host}/detalle-entrenadores.json`;
+  const url = `http://back-jg-fitness.up.railway.app/servicio-segun-id-servicio/?servicio_id=${idSolicitud}`;
+  const options = {
+    method: "GET",
+    mode: "cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Authorization": "Bearer " + token,
+      "Content-Type": "application/json"
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer"
+};
   const cargarDetalleServicio = async () => {
-    const res = await fetch(url);
+    const res = await fetch(url, options);
     const resultadoDetalleServicio = await res.json();
-    const detalleEncontrado = filtrarServicioSegunId(resultadoDetalleServicio);
-    setServicio(detalleEncontrado);
-    console.log(servicio);
+    setServicio(resultadoDetalleServicio);
   };
-  const filtrarServicioSegunId = (resultadoDetalleEntrenadores) => resultadoDetalleEntrenadores.filter(entrenador => entrenador.idServicio === idSolicitud)[0];
-
+  
   useEffect(() => {
     cargarDetalleServicio();
   }, [idSolicitud]);

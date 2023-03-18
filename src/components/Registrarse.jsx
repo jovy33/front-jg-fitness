@@ -28,16 +28,37 @@ export default function Registrarse() {
         }
     }
 
-    const registrarUsuario = (e) => {
+    const url = `https://back-jg-fitness.up.railway.app/usuarios`;
+    // const url = `http://localhost:3000/usuarios`;
+    const options = {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify(user)
+    };
+
+    const registrarUsuario = async (e) => {
+        e.preventDefault();
         if (!esValido()) {
             alert('debe ingresar todos los campos');
         } else {
-            setRegistroUsuario(user);
-            console.log(user);
-            alert('usuario registrado con éxito');
-            irALogin();
+            try {
+                const res = await fetch(url, options);
+                setRegistroUsuario(user);
+                console.log(user);
+                alert('usuario registrado con éxito');
+                irALogin();
+            } catch (error) {
+                console.log(error);
+                alert('ocurrio un problema al intentar crear el usuario, intente más tarde');
+            }            
         }
-        e.preventDefault();
     }
 
     return (

@@ -1,16 +1,42 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect } from "react";
 import MyContext from '../my_context';
-import { useContext } from "react";
 
 export default function Perfil() {
 
-  const { registroUsuario } = useContext(MyContext);
+  const { registroUsuario, setRegistroUsuario, setIdSolicitud } = useContext(MyContext);
+  const { token } = useContext(MyContext);
 
   const navigate = useNavigate();
   const irAMiSolicitud = async () => {
     navigate('/mi-solicitud/');
   };
+
+  const url = `https://back-jg-fitness.up.railway.app/usuarios`;
+  // const url = `http://localhost:3000/usuarios`;
+  const options = {
+      method: "GET",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer"
+  };
+  const cargarPerfil = async () => {
+      const res = await fetch(url, options);
+      const resultadoPerfil = await res.json();
+      setRegistroUsuario(resultadoPerfil);
+      // setIdSolicitud(resultadoPerfil.servicio_id);
+  };
+
+  useEffect(() => {
+    cargarPerfil();
+  }, []);
 
   return (
     <div className='div-perfil'>

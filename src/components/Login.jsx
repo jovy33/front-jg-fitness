@@ -6,7 +6,7 @@ import MyContext from '../my_context';
 
 export default function Login() {
 
-    const { setIsLogged, registroUsuario, token, setToken } = useContext(MyContext);
+    const { setIsLogged, setUserId, setToken } = useContext(MyContext);
     const [user, setUser] = useState({});
 
     const navigate = useNavigate();
@@ -24,16 +24,19 @@ export default function Login() {
         }
     }
     const validarLogin = async (e) => {
+        e.preventDefault();
         if (!esValidoCampos()) {
             alert('debe ingresar todos los campos');
-        } else if (await !loginBackend()) {
-            setIsLogged(false);
-            alert('usuario no registrado');            
         } else {
-            setIsLogged(true);
-            irListadoPersonalTrainers();
+            const loging = await loginBackend();
+            if (!loging) {
+                setIsLogged(false);
+                alert('usuario no registrado');            
+            } else {
+                setIsLogged(true);
+                irListadoPersonalTrainers();
+            }
         }
-        e.preventDefault();
     };
 
     const url = `https://back-jg-fitness.up.railway.app/login`;
@@ -53,8 +56,9 @@ export default function Login() {
     const loginBackend = async () => {
         try {
             const res = await fetch(url, options);
-            const resultadoLoginBackendToken = await res.text();
-            setToken(resultadoLoginBackendToken);
+            const resultadoLoginBackend = await res.json();
+            setToken(resultadoLoginBackend.token);
+            setUserId(resultadoLoginBackend.idUsuario);
             return true;
         } catch (error) {
             console.log(error);
