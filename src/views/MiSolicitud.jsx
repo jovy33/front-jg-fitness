@@ -21,9 +21,19 @@ export default function MiSolicitud() {
     referrerPolicy: "no-referrer"
 };
   const cargarDetalleServicio = async () => {
-    const res = await fetch(url, options);
-    const resultadoDetalleServicio = await res.json();
-    setServicio(resultadoDetalleServicio);
+    try {
+      const res = await fetch(url, options);
+      if (res.status == 500) {
+        const resultadoError = await res.json();
+        alert('ocurrio un error al intentar obtener la información: ' + resultadoError);
+        console.log('------>', resultadoError);
+      } else {
+        const resultadoDetalleServicio = await res.json();
+        setServicio(resultadoDetalleServicio);
+      }
+    } catch (error) {
+      alert('ocurrio un error: ' + error.message);
+    }
   };
   
   useEffect(() => {
