@@ -49,11 +49,18 @@ export default function Registrarse() {
             alert('debe ingresar todos los campos');
         } else {
             try {
-                const res = await fetch(url, options);
-                setRegistroUsuario(user);
-                console.log(user);
-                alert('usuario registrado con éxito');
-                irALogin();
+                const respuesta = await fetch(url, options);
+                if (respuesta.status == 500) {
+                    const resultadoCrearUsuario = await respuesta.json();
+                    if (resultadoCrearUsuario.detail == "Key (email)=(jovy@gmail.cl) already exists.") {
+                        alert('No fue posible crear el usuario, email ya existente');
+                    }
+                } else {
+                    setRegistroUsuario(user);
+                    console.log(user);
+                    alert('usuario registrado con éxito');
+                    irALogin();
+                }
             } catch (error) {
                 console.log(error);
                 alert('ocurrio un problema al intentar crear el usuario, intente más tarde');

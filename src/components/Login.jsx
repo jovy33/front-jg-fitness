@@ -6,7 +6,7 @@ import MyContext from '../my_context';
 
 export default function Login() {
 
-    const { setIsLogged, setUserId, setToken } = useContext(MyContext);
+    const { setIsLogged, setUserId, setToken, setIdSolicitud } = useContext(MyContext);
     const [user, setUser] = useState({});
 
     const navigate = useNavigate();
@@ -59,6 +59,7 @@ export default function Login() {
             const resultadoLoginBackend = await res.json();
             setToken(resultadoLoginBackend.token);
             setUserId(resultadoLoginBackend.idUsuario);
+            setIdSolicitud(resultadoLoginBackend.entrenadorservicio_id);
             return true;
         } catch (error) {
             console.log(error);
