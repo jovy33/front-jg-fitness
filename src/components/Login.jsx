@@ -56,11 +56,15 @@ export default function Login() {
     const loginBackend = async () => {
         try {
             const res = await fetch(url, options);
-            const resultadoLoginBackend = await res.json();
-            setToken(resultadoLoginBackend.token);
-            setUserId(resultadoLoginBackend.idUsuario);
-            setIdSolicitud(resultadoLoginBackend.entrenadorservicio_id);
-            return true;
+            if (res.status == 500) {
+                return false;
+            } else {
+                const resultadoLoginBackend = await res.json();
+                setToken(resultadoLoginBackend.token);
+                setUserId(resultadoLoginBackend.idUsuario);
+                setIdSolicitud(resultadoLoginBackend.entrenadorservicio_id);
+                return true;
+            }
         } catch (error) {
             console.log(error);
             return false;

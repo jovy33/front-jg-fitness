@@ -57,7 +57,6 @@ export default function Registrarse() {
                     }
                 } else {
                     setRegistroUsuario(user);
-                    console.log(user);
                     alert('usuario registrado con éxito');
                     irALogin();
                 }
@@ -77,7 +76,7 @@ export default function Registrarse() {
                         onChange={({ target }) =>
                             setUser({ ...user, ["nombre"]: target.value })
                         }
-                        type="text" placeholder="ingresar nombre" />
+                        type="text" placeholder="ingresar nombre" autoComplete='off'/>
                     <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicApellido">
@@ -86,7 +85,7 @@ export default function Registrarse() {
                         onChange={({ target }) =>
                             setUser({ ...user, ["apellido"]: target.value })
                         }
-                        type="text" placeholder="ingresar apellido" />
+                        type="text" placeholder="ingresar apellido" autoComplete='off' />
                     <Form.Text className="text-muted"></Form.Text>
                 </Form.Group>
 
@@ -124,7 +123,7 @@ export default function Registrarse() {
                         onChange={({ target }) =>
                             setUser({ ...user, ["email"]: target.value })
                         }
-                        type="mail" placeholder="ingresar email" />
+                        type="mail" placeholder="ingresar email" autoComplete='off' />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Clave</Form.Label>
@@ -132,7 +131,7 @@ export default function Registrarse() {
                         onChange={({ target }) =>
                             setUser({ ...user, ["clave"]: target.value })
                         }
-                        type="password" placeholder="ingresar clave" />
+                        type="password" placeholder="ingresar clave" autoComplete='off'/>
                 </Form.Group>
                 <Button variant="primary" type="submit" onClick={(e) => registrarUsuario(e)}>
                     Registrar
