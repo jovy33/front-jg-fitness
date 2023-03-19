@@ -62,7 +62,7 @@ export default function Login() {
                 const resultadoLoginBackend = await res.json();
                 setToken(resultadoLoginBackend.token);
                 setUserId(resultadoLoginBackend.idUsuario);
-                setIdSolicitud(resultadoLoginBackend.entrenadorservicio_id);
+                setIdSolicitud(resultadoLoginBackend.servicio_id);
                 return true;
             }
         } catch (error) {

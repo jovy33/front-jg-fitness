@@ -4,13 +4,14 @@ import MyContext from '../my_context';
 export default function MiSolicitud() {
   const { idSolicitud, token } = useContext(MyContext);
   const [servicio, setServicio] = useState({});
+  let cargando = false;
 
   const host = window.location.protocol + '//' + window.location.host;
   // const url = `${host}/detalle-entrenadores.json`;
-  const url = `http://back-jg-fitness.up.railway.app/servicio-segun-id-servicio/?servicio_id=${idSolicitud}`;
+  const url = `https://back-jg-fitness.up.railway.app/servicio-segun-id-servicio/?servicio_id=${idSolicitud}`;
   const options = {
     method: "GET",
-    mode: "no-cors",
+    mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
@@ -27,7 +28,6 @@ export default function MiSolicitud() {
         if (res.status == 500) {
           const resultadoError = await res.json();
           alert('ocurrio un error al intentar obtener la información: ' + resultadoError);
-          console.log('------>', resultadoError);
         } else {
           const resultadoDetalleServicio = await res.json();
           setServicio(resultadoDetalleServicio);
@@ -40,7 +40,7 @@ export default function MiSolicitud() {
 
   useEffect(() => {
     cargarDetalleServicio();
-  }, [idSolicitud]);
+  }, []);
 
   return (
     idSolicitud ?
