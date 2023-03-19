@@ -10,7 +10,7 @@ export default function MiSolicitud() {
   const url = `http://back-jg-fitness.up.railway.app/servicio-segun-id-servicio/?servicio_id=${idSolicitud}`;
   const options = {
     method: "GET",
-    mode: "cors",
+    mode: "no-cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
